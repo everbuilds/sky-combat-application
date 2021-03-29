@@ -1,11 +1,11 @@
 package com.skycombat.game.model.gui.element.ghost
 
 import com.skycombat.game.model.gui.DisplayDimension
-import com.skycombat.game.model.gui.element.Player
 import com.skycombat.game.model.gui.element.ghost.movement.LinearAimedPositionMovement
-import com.skycombat.game.model.gui.element.powerup.ShieldPowerUp
-import android.graphics.Paint
-import android.graphics.PointF
+import com.skycombat.game.model.gui.element.bullet.Bullet
+import com.skycombat.game.model.gui.element.bullet.ClassicBullet
+import com.skycombat.game.model.gui.element.bullet.LaserBullet
+import com.skycombat.game.model.gui.element.bullet.collision.EnemyCollisionStrategy
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -18,20 +18,16 @@ class GhostTest {
         val height = 100f
         val ghost = Ghost(LinearAimedPositionMovement(),2f, DisplayDimension(width, height))
 
-        val tx : Float  = width/2F
-        val ty : Float = height/ 5 * 4
+        //val tx : Float  = width/2F
+        //val ty : Float = height/ 5 * 4
 
-
-        val f = PointF(tx,ty)
-        val x = f.x
-        val y = f.y
         val center=ghost.getCenter().x
         assertEquals(0.0f,center)
     }
 
     @Test
     fun getRadius() {
-        val width = 100f;
+        val width = 100f
         val height = 100f
         val ghost = Ghost(LinearAimedPositionMovement(),2f,DisplayDimension(width, height))
         assertEquals(70f,ghost.getRadius())
@@ -39,7 +35,7 @@ class GhostTest {
 
     @Test
     fun shouldRemove() {
-        val width = 100f;
+        val width = 100f
         val height = 100f
 
         val ghost = Ghost(LinearAimedPositionMovement(),2f,DisplayDimension(width, height))
@@ -50,7 +46,7 @@ class GhostTest {
 
     @Test
     fun isAlive() {
-        val width = 100f;
+        val width = 100f
         val height = 100f
         val ghost = Ghost(LinearAimedPositionMovement(),2f,DisplayDimension(width, height))
         assertTrue(ghost.isAlive())
@@ -62,14 +58,18 @@ class GhostTest {
 
     @Test
     fun update() {
+        val width = 100f
+        val height = 100f
+        val ghost = Ghost(LinearAimedPositionMovement(),2f,DisplayDimension(width, height))
+        
     }
 
     @Test
     fun setX() {
-        val width = 100f;
+        val width = 100f
         val height = 100f
         val ghost = Ghost(LinearAimedPositionMovement(),2f,DisplayDimension(width, height))
-        val x=ghost.setX(2f)
+        ghost.setX(2f)
 
         assertEquals(2f,ghost.getX())
     }
@@ -77,25 +77,44 @@ class GhostTest {
 
     @Test
     fun aimToPos() {
+        val width = 100f
+        val height = 100f
+        val ghost = Ghost(LinearAimedPositionMovement(),2f,DisplayDimension(width, height))
+        ghost.aimedPositionX=5f
+        assertEquals(5f,ghost.aimToPos())
     }
 
     @Test
     fun velocity() {
-        val width = 100f;
+        val width = 100f
         val height = 100f
         val ghost = Ghost(LinearAimedPositionMovement(),2f,DisplayDimension(width, height))
         assertEquals(2f,ghost.velocity())
     }
 
     @Test
-    fun collide() {
+    fun collideRectangle() {
+        val width = 100f; val height = 100f
+        val bullet = LaserBullet(1f,1f, EnemyCollisionStrategy(),  Bullet.Direction.DOWN, DisplayDimension(width, height))
+        val ghost = Ghost(LinearAimedPositionMovement(),2f,DisplayDimension(width, height))
+        ghost.getCenter()
+
+        assertFalse(ghost.collide(bullet))
+
     }
 
     @Test
-    fun testCollide() {
+    fun testCollideCircle() {
+        val width = 100f; val height = 100f
+        val bullet = ClassicBullet(1f,1f, EnemyCollisionStrategy(),  Bullet.Direction.DOWN, DisplayDimension(width, height))
+        val ghost = Ghost(LinearAimedPositionMovement(),2f,DisplayDimension(width, height))
+        ghost.getCenter()
+
+        assertFalse(ghost.collide(bullet))
     }
 
     @Test
-    fun testCollide1() {
+    fun testCollideEntity() {
+
     }
 }
