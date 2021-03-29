@@ -4,6 +4,8 @@ import com.skycombat.game.model.gui.DisplayDimension
 import com.skycombat.game.model.gui.element.Player
 import com.skycombat.game.model.gui.element.ghost.movement.LinearAimedPositionMovement
 import com.skycombat.game.model.gui.element.powerup.ShieldPowerUp
+import android.graphics.Paint
+import android.graphics.PointF
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -20,13 +22,13 @@ class GhostTest {
 
     @Test
     fun shouldRemove() {
-//        val width = 100f;
-//        val height = 100f
-//
-//        val ghost = Ghost(LinearAimedPositionMovement(),2f,DisplayDimension(10f, 10f))
-//        ghost.paint.alpha = 127
-//        ghost.kill()
-//        assertTrue(ghost.shouldRemove())
+        val width = 100f;
+        val height = 100f
+
+        val ghost = Ghost(LinearAimedPositionMovement(),2f,DisplayDimension(10f, 10f))
+
+        ghost.kill()
+        assertTrue(ghost.shouldRemove())
     }
 
     @Test

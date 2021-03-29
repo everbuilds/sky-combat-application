@@ -98,12 +98,13 @@ class BulletTest {
         player.setPosition(5f,height)
         player.health = 1f
 
-        for (i in 1..2)bullet.update()
+        for (i in 1..2) bullet.update()
 
         if(bullet.collide(player))
             bullet.applyCollisionEffects(player)
 
         assertEquals(50.0f,bullet.getSpeed())
+
     }
 
 }

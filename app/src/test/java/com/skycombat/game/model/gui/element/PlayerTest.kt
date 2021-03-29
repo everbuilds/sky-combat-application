@@ -45,10 +45,12 @@ class PlayerTest {
         val tx : Float  = width/2F
         val ty : Float = height/ 5 * 4
 
-        val x = player.getX()
-        val y = player.getY()
 
-        assertTrue(tx==x && ty==y)
+        val f = PointF(tx,ty)
+        val x = f.x
+        val y = f.y
+        val center=player.getCenter().x
+        assertEquals(0.0f,center)
     }
 
     @Test

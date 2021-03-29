@@ -29,11 +29,13 @@ class GameViewDrawableVisitor(val context: Context): DrawVisitor {
             )
         })
 
+        var paint=Paint()
+        paint.alpha=ghost.alpha
         canvas?.drawBitmap(
             ghostImg,
             ghost.getX() - Ghost.RADIUS / 2,
             ghost.y - Ghost.RADIUS / 2,
-            ghost.paint
+            paint
         )
     }
 
