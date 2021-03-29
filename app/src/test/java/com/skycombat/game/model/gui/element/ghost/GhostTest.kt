@@ -60,8 +60,26 @@ class GhostTest {
     fun update() {
         val width = 100f
         val height = 100f
-        val ghost = Ghost(LinearAimedPositionMovement(),2f,DisplayDimension(width, height))
-        
+        val vel = 2f
+
+        val ghost = Ghost(LinearAimedPositionMovement(),vel,DisplayDimension(width, height))
+        val ghost2 = Ghost(LinearAimedPositionMovement(),vel,DisplayDimension(width, height))
+        val ghostElse = Ghost(LinearAimedPositionMovement(),vel,DisplayDimension(width, height))
+
+
+        ghost.setX(100f)
+        ghost.aimedPositionX = 101f
+        ghost.update()
+
+        ghost2.setX(102f)
+        ghost2.aimedPositionX = 100f
+        ghost2.update()
+
+        ghostElse.setX(100f)
+        ghostElse.aimedPositionX = 103f
+        ghostElse.update()
+
+        assertTrue(ghost.getX()==ghost.aimToPos() && ghost2.getX()==102f-vel && ghostElse.getX()==100f+vel)
     }
 
     @Test
