@@ -20,12 +20,13 @@ class GhostTest {
 
     @Test
     fun shouldRemove() {
-        //val width = 100f;
-        //val height = 100f
-
-        //var ghost = Ghost(LinearAimedPositionMovement(),2f,DisplayDimension(10f, 10f))
-        //ghost.kill()
-        //assertTrue(ghost.shouldRemove())
+//        val width = 100f;
+//        val height = 100f
+//
+//        val ghost = Ghost(LinearAimedPositionMovement(),2f,DisplayDimension(10f, 10f))
+//        ghost.paint.alpha = 127
+//        ghost.kill()
+//        assertTrue(ghost.shouldRemove())
     }
 
     @Test
@@ -40,7 +41,7 @@ class GhostTest {
     fun isAlive() {
         //val width = 100f;
         //val height = 100f
-        //var ghost = Ghost(LinearAimedPositionMovement(),2f,DisplayDimension(10f, 10f))
+        //val ghost = Ghost(LinearAimedPositionMovement(),2f,DisplayDimension(10f, 10f))
         //assertTrue(ghost.isAlive())
     }
 
