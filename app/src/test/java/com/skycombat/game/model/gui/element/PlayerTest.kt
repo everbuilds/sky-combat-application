@@ -12,6 +12,7 @@ import org.junit.Test
 
 class PlayerTest {
 
+    // 36
     @Test
     fun `should remove if player is dead`(){
         val player = Player(10f, LinearAimedPositionMovement(), DisplayDimension(10f, 10f))
@@ -20,6 +21,7 @@ class PlayerTest {
         assertTrue(player.shouldRemove())
     }
 
+    //37
     @Test
     fun `should not you be alive`(){
         val player = Player(10f, LinearAimedPositionMovement(), DisplayDimension(10f, 10f))
@@ -46,6 +48,7 @@ class PlayerTest {
 //        assertEquals(0.0f,center.dx)
 //    }
 
+    // 38
     @Test
     fun `collide with bullet`(){
         val width = 100f; val height = 100f
@@ -70,6 +73,7 @@ class PlayerTest {
 //        assertTrue(player.collide(bullet))
 //    }
 
+    // 39
     @Test
     fun `check health if bullet collide`(){
         val width = 100f; val height = 100f
@@ -83,6 +87,7 @@ class PlayerTest {
         assertTrue(player.getCurrentHealth()<player.getMaxHealth())
     }
 
+    // 40
     @Test
     fun `check MAX_HEALTH with shield if bullet collide`(){
         val width = 100f; val height = 100f
@@ -97,6 +102,7 @@ class PlayerTest {
         assertTrue(player.getCurrentHealth() == player.getMaxHealth())
     }
 
+    // 41
     @Test
     fun `check shield is due to date`(){
         val width = 100f; val height = 100f

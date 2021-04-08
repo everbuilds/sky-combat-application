@@ -11,7 +11,7 @@ import org.junit.Test
 import org.junit.Assert.*
 
 class EnemyFactoryTest {
-
+    // 6
     @Test
     fun generate() {
         val width = 100f

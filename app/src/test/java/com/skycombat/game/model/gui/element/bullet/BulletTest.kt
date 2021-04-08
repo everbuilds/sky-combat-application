@@ -14,7 +14,7 @@ import org.junit.Test
 import org.junit.Assert.*
 
 class BulletTest {
-
+    // 11
     @Test
     fun `shouldRemove gust bullet`() {
         val width = 100f
@@ -24,6 +24,7 @@ class BulletTest {
         bullet.applyCollisionEffects(enemy)
         assertTrue(bullet.shouldRemove())
     }
+    // 12
     @Test
     fun `check life damage laser bullet`() {
         val width = 100f
@@ -33,7 +34,7 @@ class BulletTest {
         bullet.applyCollisionEffects(enemy)
         assertTrue(enemy.health<enemy.getMaxHealth())
     }
-
+    // 13
     @Test
     fun `getSpeed classic bullet`() {
         val width = 10f
@@ -51,7 +52,7 @@ class BulletTest {
 
         assertTrue(bullet.shouldRemove() && player.shouldRemove())
     }
-
+    // 14
     @Test
     fun `getSpeed gust bullet`() {
         val width = 10f
@@ -69,7 +70,7 @@ class BulletTest {
 
         assertTrue(bullet.shouldRemove() && player.shouldRemove())
     }
-
+    // 15
     @Test
     fun `getSpeed laser bullet`() {
         val width = 10f
@@ -87,7 +88,7 @@ class BulletTest {
 
         assertEquals(80.0f,bullet.getSpeed())
     }
-
+    // 16
     @Test
     fun `getSpeed multiple bullet`() {
         val width = 10f

@@ -14,7 +14,7 @@ import org.junit.Test
 import org.junit.Assert.*
 
 class EnemyTest {
-
+    // 17
     @Test
     fun getHeight() {
         val width = 100f
@@ -23,7 +23,7 @@ class EnemyTest {
         val high = 180f
         assertNotEquals(high,enemy.getHeight())
     }
-
+    // 18
     @Test
     fun `getMaxHealth plane enemy`() {
         val width = 100f
@@ -33,7 +33,7 @@ class EnemyTest {
         val health = 200f * coeff
         assertEquals(health , enemy.getMaxHealth())
     }
-
+    // 19
     @Test
     fun `getMaxHealth jet enemy`() {
         val width = 100f
@@ -42,7 +42,7 @@ class EnemyTest {
         val health = 300f
         assertEquals(health , enemy.getMaxHealth())
     }
-
+    // 20
     @Test
     fun shouldRemove() {
         val width = 100f
@@ -70,6 +70,7 @@ class EnemyTest {
 //        assertNotEquals(0.0f,enemy.getPosition().left)
 //    }
 
+    //21
     @Test
     fun `Testing Rectangle Colliding Bullet`(){
         val width = 100f

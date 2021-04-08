@@ -15,7 +15,7 @@ import org.junit.Assert.*
 import kotlin.random.Random
 
 class BulletFactoryTest {
-
+    // 1
     @Test
     fun generateClassicBulletFactory() {
         val width = 100f
@@ -28,7 +28,7 @@ class BulletFactoryTest {
         classicBullet.applyCollisionEffects(player)
         assertEquals(player.getMaxHealth()-player.health, classicBullet.getDamage())
     }
-
+    // 2
     @Test
     fun generateGustBulletFactory() {
         val width = 100f
@@ -41,7 +41,7 @@ class BulletFactoryTest {
         GustBullet.applyCollisionEffects(player)
         assertEquals(player.getMaxHealth()-player.health, GustBullet.getDamage())
     }
-
+    // 3
     @Test
     fun generateLaserBulletFactory() {
         val width = 100f
@@ -52,7 +52,7 @@ class BulletFactoryTest {
         LaserBullet.applyCollisionEffects(enemy)
         assertEquals(enemy.getMaxHealth()-enemy.health, LaserBullet.getDamage())
     }
-
+    // 4
     @Test
     fun generateMultipleBulletFactory() {
         val width = 100f
@@ -63,7 +63,7 @@ class BulletFactoryTest {
         MultipleBullet.applyCollisionEffects(enemy)
         assertEquals(enemy.getMaxHealth()-enemy.health, MultipleBullet.getDamage())
     }
-
+    // 5
     @Test
     fun `Test Delay Between Generations`(){
         val width = 100f
