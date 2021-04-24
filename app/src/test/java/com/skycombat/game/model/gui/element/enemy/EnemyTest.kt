@@ -45,8 +45,8 @@ class EnemyTest {
     // 20
     @Test
     fun `shouldRemove of enemy`() {
-        val width = 100f
-        val height = 100f
+        //val width = 100f
+        //val height = 100f
         //val enemy = SpaceShipEnemy(GustBulletFactory(), Movement(1,2,3),  DisplayDimension(width, height))
         val enemy: Enemy = Mockito.mock(
             Enemy::class.java,
