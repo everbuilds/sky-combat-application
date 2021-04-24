@@ -81,9 +81,13 @@ class EnemyTest {
     //36
     @Test
     fun `shouldRemove of enemy over the screen`() {
-        val width = 100f
-        val height = 100f
-        val enemy = PlaneEnemy(GustBulletFactory(), Movement(1,2,3),  DisplayDimension(width, height))
+//        val width = 100f
+//        val height = 100f
+//        val enemy = PlaneEnemy(GustBulletFactory(), Movement(1,2,3),  DisplayDimension(width, height))
+        val enemy: Enemy = Mockito.mock(
+            Enemy::class.java,
+            Mockito.CALLS_REAL_METHODS
+        )
         enemy.left = -160f
 
         assertTrue(enemy.shouldRemove())
@@ -112,7 +116,11 @@ class EnemyTest {
     fun `Testing Rectangle Colliding Bullet`(){
         val width = 100f
         val height = 100f
-        val enemy = SpaceShipEnemy(GustBulletFactory(), Movement(1,2,3),  DisplayDimension(width, height))
+//        val enemy = SpaceShipEnemy(GustBulletFactory(), Movement(1,2,3),  DisplayDimension(width, height))
+        val enemy: Enemy = Mockito.mock(
+            Enemy::class.java,
+            Mockito.CALLS_REAL_METHODS
+        )
         val bullet = LaserBullet(enemy.left, enemy.top, PlayerCollisionStrategy(), Bullet.Direction.UP, DisplayDimension(width, height))
         enemy.health=1f
 
