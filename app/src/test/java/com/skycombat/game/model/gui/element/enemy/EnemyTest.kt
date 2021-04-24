@@ -16,13 +16,34 @@ import org.mockito.Mockito
 class EnemyTest {
     // 17
     @Test
-    fun `getHeight of enemy`() {
+    fun `getHeight of jet enemy`() {
         val width = 100f
         val height = 100f
         val enemy = JetEnemy(GustBulletFactory(), Movement(1,2,3),  DisplayDimension(width, height))
         val high = 180f
         assertNotEquals(high,enemy.getHeight())
     }
+
+    //38
+    @Test
+    fun `getHeight of plane enemy`() {
+        val width = 100f
+        val height = 100f
+        val enemy = PlaneEnemy(GustBulletFactory(), Movement(1,2,3),  DisplayDimension(width, height))
+        val high = 180f
+        assertEquals(high,enemy.getHeight())
+    }
+
+    //39
+    @Test
+    fun `getHeight of space ship enemy`() {
+        val width = 100f
+        val height = 100f
+        val enemy = SpaceShipEnemy(GustBulletFactory(), Movement(1,2,3),  DisplayDimension(width, height))
+        val high = 270f
+        assertEquals(high,enemy.getHeight())
+    }
+
     // 18
     @Test
     fun `getMaxHealth plane enemy`() {

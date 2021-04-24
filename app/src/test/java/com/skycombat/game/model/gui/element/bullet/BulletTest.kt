@@ -5,6 +5,7 @@ import com.skycombat.game.model.gui.DisplayDimension
 import com.skycombat.game.model.gui.element.Player
 import com.skycombat.game.model.gui.element.bullet.collision.EnemyCollisionStrategy
 import com.skycombat.game.model.gui.element.bullet.collision.PlayerCollisionStrategy
+import com.skycombat.game.model.gui.element.enemy.JetEnemy
 import com.skycombat.game.model.gui.element.enemy.PlaneEnemy
 import com.skycombat.game.model.gui.element.enemy.movement.Movement
 import com.skycombat.game.model.gui.element.ghost.movement.LinearAimedPositionMovement
@@ -34,6 +35,19 @@ class BulletTest {
         bullet.applyCollisionEffects(enemy)
         assertTrue(enemy.health<enemy.getMaxHealth())
     }
+
+    //37
+    @Test
+    fun `check life damage multiple bullet`() {
+        val width = 100f
+        val height = 100f
+        val bullet = MultipleBullet(6f, 4f, PlayerCollisionStrategy(), Bullet.Direction.UP, DisplayDimension(width, height))
+        val enemy = JetEnemy(GustBulletFactory(), Movement(1, 2, 3), DisplayDimension(width, height))
+        bullet.applyCollisionEffects(enemy)
+        val damage = enemy.getMaxHealth()-enemy.health
+        assertEquals(bullet.getDamage(),damage)
+    }
+
     // 13
     @Test
     fun `getSpeed classic bullet`() {
