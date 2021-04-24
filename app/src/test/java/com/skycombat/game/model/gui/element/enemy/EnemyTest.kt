@@ -11,6 +11,7 @@ import com.skycombat.game.model.gui.element.enemy.movement.Movement
 import org.junit.Test
 
 import org.junit.Assert.*
+import org.mockito.Mockito
 
 class EnemyTest {
     // 17
@@ -43,10 +44,14 @@ class EnemyTest {
     }
     // 20
     @Test
-    fun `shouldRemove of enemy by health`() {
+    fun `shouldRemove of enemy`() {
         val width = 100f
         val height = 100f
-        val enemy = SpaceShipEnemy(GustBulletFactory(), Movement(1,2,3),  DisplayDimension(width, height))
+        //val enemy = SpaceShipEnemy(GustBulletFactory(), Movement(1,2,3),  DisplayDimension(width, height))
+        val enemy: Enemy = Mockito.mock(
+            Enemy::class.java,
+            Mockito.CALLS_REAL_METHODS
+        )
         enemy.health = 0f
 
         assertTrue(enemy.shouldRemove())
