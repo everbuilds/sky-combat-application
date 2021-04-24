@@ -1,6 +1,5 @@
 package com.skycombat.game.model.gui.element.enemy
 
-import com.skycombat.game.model.factory.bullet.ClassicBulletFactory
 import com.skycombat.game.model.factory.bullet.GustBulletFactory
 import com.skycombat.game.model.factory.bullet.LaserBulletFactory
 import com.skycombat.game.model.gui.DisplayDimension
