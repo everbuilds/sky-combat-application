@@ -14,19 +14,19 @@ import kotlin.random.Random
 class PowerUpFactoryTest{
     // 7
     @Test
-    fun lifePowerUpFactory(){
+    fun `life PowerUp Factory`(){
         val width = 100f
         val height = 100f
         val power = LifePowerUpFactory()
-        val lifepower=power.generate(5f,2, Random(3),DisplayDimension(width, height))
+        val lifePower=power.generate(5f,2, Random(3),DisplayDimension(width, height))
         val player = Player(0f, LinearAimedPositionMovement(), DisplayDimension(width, height))
         player.health = 1f
-        lifepower.applyPowerUPEffects(player)
+        lifePower.applyPowerUPEffects(player)
         assertEquals(player.health,player.getMaxHealth())
     }
     // 8
     @Test
-    fun gunsPowerUpFactory(){
+    fun `guns PowerUp Factory`(){
         val width = 100f
         val height = 100f
         val power = GunsPowerUpFactory()
@@ -43,7 +43,7 @@ class PowerUpFactoryTest{
     }
     // 9
     @Test
-    fun shieldPowerUpFactory(){
+    fun `shield PowerUp Factory`(){
         val width = 100f
         val height = 100f
         val power = ShieldPowerUpFactory()
@@ -55,7 +55,7 @@ class PowerUpFactoryTest{
     }
     // 10
     @Test
-    fun seedGeneralPowerUpFactory(){
+    fun `seedGeneral PowerUp Factory`(){
         val width = 100f
         val height = 100f
         val power = SeedGeneralPowerUpFactory(3,DisplayDimension(width, height))

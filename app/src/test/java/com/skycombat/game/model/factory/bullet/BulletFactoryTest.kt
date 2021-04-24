@@ -1,6 +1,6 @@
 package com.skycombat.game.model.factory.bullet
 
-import com.skycombat.game.model.factory.powerup.LifePowerUpFactory
+
 import com.skycombat.game.model.gui.DisplayDimension
 import com.skycombat.game.model.gui.element.Player
 import com.skycombat.game.model.gui.element.bullet.Bullet
@@ -12,12 +12,12 @@ import com.skycombat.game.model.gui.element.ghost.movement.LinearAimedPositionMo
 import org.junit.Test
 
 import org.junit.Assert.*
-import kotlin.random.Random
+
 
 class BulletFactoryTest {
     // 1
     @Test
-    fun generateClassicBulletFactory() {
+    fun `generate Classic Bullet Factory`() {
         val width = 100f
         val height = 100f
         val power = ClassicBulletFactory()
@@ -30,44 +30,42 @@ class BulletFactoryTest {
     }
     // 2
     @Test
-    fun generateGustBulletFactory() {
+    fun `generate Gust Bullet Factory` () {
         val width = 100f
         val height = 100f
         val power = GustBulletFactory()
-        val GustBullet=power.generate(5f,2f, EnemyCollisionStrategy(), Bullet.Direction.UP, DisplayDimension(width, height))
+        val gustBullet=power.generate(5f,2f, EnemyCollisionStrategy(), Bullet.Direction.UP, DisplayDimension(width, height))
         val player = Player(0f, LinearAimedPositionMovement(), DisplayDimension(width, height))
         player.health=player.getMaxHealth()
 
-        GustBullet.applyCollisionEffects(player)
-        assertEquals(player.getMaxHealth()-player.health, GustBullet.getDamage())
+        gustBullet.applyCollisionEffects(player)
+        assertEquals(player.getMaxHealth()-player.health, gustBullet.getDamage())
     }
     // 3
     @Test
-    fun generateLaserBulletFactory() {
+    fun `generate Laser Bullet Factory`() {
         val width = 100f
         val height = 100f
         val power = LaserBulletFactory()
-        val LaserBullet=power.generate(5f,2f, PlayerCollisionStrategy(), Bullet.Direction.DOWN, DisplayDimension(width, height))
+        val laserBullet=power.generate(5f,2f, PlayerCollisionStrategy(), Bullet.Direction.DOWN, DisplayDimension(width, height))
         val enemy = JetEnemy(GustBulletFactory(), Movement(1,2,3),  DisplayDimension(width, height))
-        LaserBullet.applyCollisionEffects(enemy)
-        assertEquals(enemy.getMaxHealth()-enemy.health, LaserBullet.getDamage())
+        laserBullet.applyCollisionEffects(enemy)
+        assertEquals(enemy.getMaxHealth()-enemy.health, laserBullet.getDamage())
     }
     // 4
     @Test
-    fun generateMultipleBulletFactory() {
+    fun `generate Multiple Bullet Factory`() {
         val width = 100f
         val height = 100f
         val power = MultipleBulletFactory()
-        val MultipleBullet=power.generate(5f,2f, PlayerCollisionStrategy(), Bullet.Direction.DOWN, DisplayDimension(width, height))
+        val multipleBullet=power.generate(5f,2f, PlayerCollisionStrategy(), Bullet.Direction.DOWN, DisplayDimension(width, height))
         val enemy = JetEnemy(GustBulletFactory(), Movement(1,2,3),  DisplayDimension(width, height))
-        MultipleBullet.applyCollisionEffects(enemy)
-        assertEquals(enemy.getMaxHealth()-enemy.health, MultipleBullet.getDamage())
+        multipleBullet.applyCollisionEffects(enemy)
+        assertEquals(enemy.getMaxHealth()-enemy.health, multipleBullet.getDamage())
     }
     // 5
     @Test
     fun `Test Delay Between Generations`(){
-        val width = 100f
-        val height = 100f
         val bf1 = ClassicBulletFactory()
         val bf2 = GustBulletFactory()
         val bf3 = LaserBulletFactory()

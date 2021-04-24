@@ -16,7 +16,7 @@ import org.junit.Assert.*
 class EnemyTest {
     // 17
     @Test
-    fun getHeight() {
+    fun `getHeight of enemy`() {
         val width = 100f
         val height = 100f
         val enemy = JetEnemy(GustBulletFactory(), Movement(1,2,3),  DisplayDimension(width, height))
@@ -44,7 +44,7 @@ class EnemyTest {
     }
     // 20
     @Test
-    fun shouldRemove() {
+    fun `shouldRemove of enemy`() {
         val width = 100f
         val height = 100f
         val enemy = SpaceShipEnemy(GustBulletFactory(), Movement(1,2,3),  DisplayDimension(width, height))

@@ -36,7 +36,7 @@ class GhostTest {
 
     // 24
     @Test
-    fun shouldRemove() {
+    fun `shouldRemove of ghost`() {
         val width = 100f
         val height = 100f
 
@@ -53,10 +53,6 @@ class GhostTest {
         val height = 100f
         val ghost = Ghost(LinearAimedPositionMovement(),2f,DisplayDimension(width, height))
         assertTrue(ghost.isAlive())
-    }
-
-    @Test
-    fun draw() {
     }
 
     // 26
@@ -102,7 +98,7 @@ class GhostTest {
 
     // 28
     @Test
-    fun aimToPos() {
+    fun `aim position of ghost`() {
         val width = 100f
         val height = 100f
         val ghost = Ghost(LinearAimedPositionMovement(),2f,DisplayDimension(width, height))
@@ -121,7 +117,7 @@ class GhostTest {
 
     // 30
     @Test
-    fun collideRectangle() {
+    fun `collideRectangle = not collide ghost with bullet`() {
         val width = 100f; val height = 100f
         val bullet = LaserBullet(1f,1f, EnemyCollisionStrategy(),  Bullet.Direction.DOWN, DisplayDimension(width, height))
         val ghost = Ghost(LinearAimedPositionMovement(),2f,DisplayDimension(width, height))
@@ -133,7 +129,7 @@ class GhostTest {
 
     // 31
     @Test
-    fun testCollideCircle() {
+    fun `CollideCircle = not collide ghost with bullet`() {
         val width = 100f; val height = 100f
         val bullet = ClassicBullet(1f,1f, EnemyCollisionStrategy(),  Bullet.Direction.DOWN, DisplayDimension(width, height))
         val ghost = Ghost(LinearAimedPositionMovement(),2f,DisplayDimension(width, height))
@@ -142,8 +138,4 @@ class GhostTest {
         assertFalse(ghost.collide(bullet))
     }
 
-    @Test
-    fun testCollideEntity() {
-
-    }
 }

@@ -51,10 +51,6 @@ class PowerUpTest {
         assertTrue(power.collide(player))
     }
 
-    @Test
-    fun draw() {
-    }
-
     // 35
     @Test
     fun shouldRemove() {
