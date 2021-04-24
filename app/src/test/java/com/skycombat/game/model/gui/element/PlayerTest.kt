@@ -115,5 +115,21 @@ class PlayerTest {
         assertFalse(player.hasShield())
     }
 
+    @Test
+    fun `get X`(){
+        val width = 100f; val height = 100f
+        val player = Player(10f, LinearAimedPositionMovement(), DisplayDimension(width, height))
+        val hypotesX = width/ 2F
+
+        assertEquals(player.getX(), hypotesX)
+    }
+    @Test
+    fun `get Y`(){
+        val width = 100f; val height = 100f
+        val player = Player(10f, LinearAimedPositionMovement(), DisplayDimension(width, height))
+        val hypotesY = height/ 5 * 4
+
+        assertEquals(player.getY(), hypotesY)
+    }
 }
 
