@@ -43,7 +43,7 @@ class EnemyTest {
     }
     // 20
     @Test
-    fun `shouldRemove of enemy`() {
+    fun `shouldRemove of enemy by health`() {
         val width = 100f
         val height = 100f
         val enemy = SpaceShipEnemy(GustBulletFactory(), Movement(1,2,3),  DisplayDimension(width, height))
@@ -51,6 +51,18 @@ class EnemyTest {
 
         assertTrue(enemy.shouldRemove())
     }
+
+    //36
+    @Test
+    fun `shouldRemove of enemy over the screen`() {
+        val width = 100f
+        val height = 100f
+        val enemy = PlaneEnemy(GustBulletFactory(), Movement(1,2,3),  DisplayDimension(width, height))
+        enemy.left = -160f
+
+        assertTrue(enemy.shouldRemove())
+    }
+
 
 //    @Test
 //    fun `getPosition spaceShip`(){
