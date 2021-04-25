@@ -58,7 +58,7 @@ class PowerUpFactoryTest{
     fun `seedGeneral PowerUp Factory`(){
         val width = 100f
         val height = 100f
-        val power = SeedGeneralPowerUpFactory(3,DisplayDimension(width, height))
+        val power = SeedGeneralPowerUpFactory(2,DisplayDimension(width, height))
         val seedPower=power.generate()
         val player = Player(0f, LinearAimedPositionMovement(), DisplayDimension(width, height))
         player.health = 20f

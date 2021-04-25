@@ -61,17 +61,17 @@ class PlayerTest {
         assertTrue(player.collide(bullet))
     }
 
-//    @Test
-//    fun `collide with rectangle`(){
-//        val width = 100f; val height = 100f
-//        //var enemy = JetEnemy(LaserBulletFactory(), Movement(1,2,3), DisplayDimension(width, height))
-//        val player = Player(0f, LinearAimedPositionMovement(), DisplayDimension(width, height))
-//        val bullet = MultipleBullet(1f,1f, EnemyCollisionStrategy(),  Bullet.Direction.DOWN, DisplayDimension(width, height))
-//
-//        player.setPosition(1f, 1f)
-//
-//        assertTrue(player.collide(bullet))
-//    }
+    @Test
+    fun `collide with rectangle`(){
+        val width = 100f; val height = 100f
+        //var enemy = JetEnemy(LaserBulletFactory(), Movement(1,2,3), DisplayDimension(width, height))
+        val player = Player(0f, LinearAimedPositionMovement(), DisplayDimension(width, height))
+        val bullet = MultipleBullet(0f,0f, EnemyCollisionStrategy(),  Bullet.Direction.DOWN, DisplayDimension(width, height))
+
+        player.setPosition(10f, 20f)
+
+        assertFalse(player.collide(bullet))
+    }
 
     // 43
     @Test
