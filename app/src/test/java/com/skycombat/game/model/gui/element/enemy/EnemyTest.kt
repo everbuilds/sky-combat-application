@@ -14,7 +14,7 @@ import org.junit.Assert.*
 import org.mockito.Mockito
 
 class EnemyTest {
-    // 17
+    // 18
     @Test
     fun `getHeight of jet enemy`() {
         val width = 100f
@@ -24,7 +24,7 @@ class EnemyTest {
         assertNotEquals(high,enemy.getHeight())
     }
 
-    //38
+    //19
     @Test
     fun `getHeight of plane enemy`() {
         val width = 100f
@@ -34,7 +34,7 @@ class EnemyTest {
         assertEquals(high,enemy.getHeight())
     }
 
-    //39
+    //20
     @Test
     fun `getHeight of space ship enemy`() {
         val width = 100f
@@ -44,7 +44,7 @@ class EnemyTest {
         assertEquals(high,enemy.getHeight())
     }
 
-    // 18
+    // 21
     @Test
     fun `getMaxHealth plane enemy`() {
         val width = 100f
@@ -54,7 +54,7 @@ class EnemyTest {
         val health = 200f * coeff
         assertEquals(health , enemy.getMaxHealth())
     }
-    // 19
+    // 22
     @Test
     fun `getMaxHealth jet enemy`() {
         val width = 100f
@@ -63,7 +63,7 @@ class EnemyTest {
         val health = 300f
         assertEquals(health , enemy.getMaxHealth())
     }
-    // 20
+    //23
     @Test
     fun `shouldRemove of enemy`() {
         //val width = 100f
@@ -78,7 +78,7 @@ class EnemyTest {
         assertTrue(enemy.shouldRemove())
     }
 
-    //36
+    //24
     @Test
     fun `shouldRemove of enemy over the screen`() {
 //        val width = 100f
@@ -111,7 +111,7 @@ class EnemyTest {
 //        assertNotEquals(0.0f,enemy.getPosition().left)
 //    }
 
-    //21
+    //25
     @Test
     fun `Testing Rectangle Colliding Bullet`(){
         val width = 100f

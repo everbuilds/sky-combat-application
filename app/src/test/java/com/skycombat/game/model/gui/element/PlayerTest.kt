@@ -12,7 +12,7 @@ import org.junit.Test
 
 class PlayerTest {
 
-    // 36
+    // 40
     @Test
     fun `should remove if player is dead`(){
         val player = Player(10f, LinearAimedPositionMovement(), DisplayDimension(10f, 10f))
@@ -21,7 +21,7 @@ class PlayerTest {
         assertTrue(player.shouldRemove())
     }
 
-    //37
+    //41
     @Test
     fun `should not you be alive`(){
         val player = Player(10f, LinearAimedPositionMovement(), DisplayDimension(10f, 10f))
@@ -48,7 +48,7 @@ class PlayerTest {
 //        assertEquals(0.0f,center.dx)
 //    }
 
-    // 38
+    // 42
     @Test
     fun `collide with bullet`(){
         val width = 100f; val height = 100f
@@ -73,7 +73,7 @@ class PlayerTest {
 //        assertTrue(player.collide(bullet))
 //    }
 
-    // 39
+    // 43
     @Test
     fun `check health if bullet collide`(){
         val width = 100f; val height = 100f
@@ -87,7 +87,7 @@ class PlayerTest {
         assertTrue(player.getCurrentHealth()<player.getMaxHealth())
     }
 
-    // 40
+    // 44
     @Test
     fun `check MAX_HEALTH with shield if bullet collide`(){
         val width = 100f; val height = 100f
@@ -102,7 +102,7 @@ class PlayerTest {
         assertTrue(player.getCurrentHealth() == player.getMaxHealth())
     }
 
-    // 41
+    // 45
     @Test
     fun `check shield is due to date`(){
         val width = 100f; val height = 100f
@@ -115,6 +115,7 @@ class PlayerTest {
         assertFalse(player.hasShield())
     }
 
+    //46
     @Test
     fun `get X`(){
         val width = 100f; val height = 100f
@@ -123,6 +124,8 @@ class PlayerTest {
 
         assertEquals(player.getX(), hypotesX)
     }
+
+    //47
     @Test
     fun `get Y`(){
         val width = 100f; val height = 100f

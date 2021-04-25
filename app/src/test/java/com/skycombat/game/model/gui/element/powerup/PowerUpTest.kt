@@ -11,7 +11,7 @@ import org.junit.Test
 import org.junit.Assert.*
 
 class PowerUpTest {
-    // 32
+    // 36
     @Test
     fun `shouldApply LifePowerUp`() {
         val width = 100f;
@@ -25,7 +25,7 @@ class PowerUpTest {
 
         assertTrue(power.shouldApply(player))
     }
-    // 33
+    // 37
     @Test
     fun `shouldApply GunsPowerUp`() {
         val width = 100f
@@ -39,7 +39,7 @@ class PowerUpTest {
 
         assertTrue(power.shouldApply(player))
     }
-    // 34
+    // 38
     @Test
     fun update() {
         val width = 2f
@@ -51,7 +51,7 @@ class PowerUpTest {
         assertTrue(power.collide(player))
     }
 
-    // 35
+    // 39
     @Test
     fun shouldRemove() {
         val width = 100f;

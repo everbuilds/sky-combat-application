@@ -36,7 +36,7 @@ class BulletTest {
         assertTrue(enemy.health<enemy.getMaxHealth())
     }
 
-    //37
+    //13
     @Test
     fun `check life damage multiple bullet`() {
         val width = 100f
@@ -48,7 +48,7 @@ class BulletTest {
         assertEquals(bullet.getDamage(),damage)
     }
 
-    // 13
+    // 14
     @Test
     fun `getSpeed classic bullet`() {
         val width = 10f
@@ -66,7 +66,7 @@ class BulletTest {
 
         assertTrue(bullet.shouldRemove() && player.shouldRemove())
     }
-    // 14
+    // 15
     @Test
     fun `getSpeed gust bullet`() {
         val width = 10f
@@ -84,7 +84,7 @@ class BulletTest {
 
         assertTrue(bullet.shouldRemove() && player.shouldRemove())
     }
-    // 15
+    // 16
     @Test
     fun `getSpeed laser bullet`() {
         val width = 10f
@@ -102,7 +102,7 @@ class BulletTest {
 
         assertEquals(80.0f,bullet.getSpeed())
     }
-    // 16
+    // 17
     @Test
     fun `getSpeed multiple bullet`() {
         val width = 10f
