@@ -11,7 +11,7 @@ class APILeaderboardTest{
     fun `JSON All In One`() {
 
 
-        var JsonTest = JSONObject(
+        val jsonTest = JSONObject(
             """{
             "me" : {
                 "username" : "TestLord",
@@ -33,22 +33,22 @@ class APILeaderboardTest{
             ]
         }"""
         )
-//        JsonTest : JSONObject = Mockito.mock(JSONObject::class.java, Mockito.anyString())
+//        jsonTest : JSONObject = Mockito.mock(JSONObject::class.java, Mockito.anyString())
 
-        val objson = Leaderboard(JsonTest)
-        var meChek = false;
-        var posChek = false;
+        val obJson = Leaderboard(jsonTest)
+        var meChek = false
+        var posChek = false
         var leaderboardChek = false
 
-        if (objson.me?.username == "TestLord" && objson.me?.score == 9000L && objson.me?.defeated == 1337L)
+        if (obJson.me?.username == "TestLord" && obJson.me?.score == 9000L && obJson.me?.defeated == 1337L)
             meChek = true
 
-        if (objson.me?.pos?.score == 404L && objson.me?.pos?.defeated == 12321L)
+        if (obJson.me?.pos?.score == 404L && obJson.me?.pos?.defeated == 12321L)
             posChek = true
 
         var alpha = 'A'
         for (i in 0..4) {
-            if (objson.results[i].username == alpha.toString() && objson.results[i].score == i.toLong()+1 && objson.results[i].defeated == 5L - i)
+            if (obJson.results[i].username == alpha.toString() && obJson.results[i].score == i.toLong()+1 && obJson.results[i].defeated == 5L - i)
                 leaderboardChek = true
             else {
                 leaderboardChek = false
