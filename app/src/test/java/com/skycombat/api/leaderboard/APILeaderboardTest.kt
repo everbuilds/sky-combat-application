@@ -3,7 +3,6 @@ package com.skycombat.api.leaderboard
 import org.json.JSONObject
 import org.junit.Assert.*
 import org.junit.Test
-import org.mockito.Mockito
 
 class APILeaderboardTest{
 
