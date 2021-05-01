@@ -3,8 +3,10 @@ package com.skycombat
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.Window
@@ -21,6 +23,7 @@ import com.skycombat.game.multiplayer.OpponentsUpdaterService
 import com.skycombat.game.multiplayer.RemotePlayerUpdaterService
 import com.skycombat.game.multiplayer.RemoteOpponentUpdaterService
 import com.skycombat.game.scene.GameView
+import com.skycombat.setting.GameSettingsService
 import java.io.Serializable
 import java.util.concurrent.CopyOnWriteArrayList
 import java.util.stream.Collectors
@@ -46,13 +49,15 @@ class GameActivity : Activity() {
     }
 
     //gameView will be the mainview and it will manage the game's logic
-    private val velocity = 4f
+    private val velocity = 5f
     private var gameView: GameView? = null
     private var opponentsUpdater : OpponentsUpdaterService? = null
     private var remoteRemotePlayer: RemotePlayerUpdaterService? = null
     private var currentGametype : GAMETYPE = GAMETYPE.SINGLE_PLAYER
+    private lateinit var mediaPlayer: MediaPlayer
     private lateinit var player : Player
     private var score = 0L
+    private val settings = GameSettingsService(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -63,6 +68,8 @@ class GameActivity : Activity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
+
+        mediaPlayer = MediaPlayer.create(this, R.raw.game_song)
 
         // ottenere dimensioni schermo
         val metrics = DisplayMetrics()
@@ -116,6 +123,7 @@ class GameActivity : Activity() {
                 .range(0, session.opponents.size)
                 .mapToObj{ Ghost(LinearAimedPositionMovement(), velocity, displayDimension) }
                 .collect(Collectors.toList()))
+            ghosts.forEach {  g -> g.visible = settings.ghostVisibility}
             opponentsUpdater = RemoteOpponentUpdaterService(
                 session.player!!,
                 session.opponents.zip(ghosts)
@@ -164,6 +172,10 @@ class GameActivity : Activity() {
 
         //toglie l'allocazione sulla GUI del bottone cosi` puo` riapparire sopra la gameView
         setContentView(fw)
+        mediaPlayer.isLooping = true;
+        val volume = settings.songVolume.toFloat() / GameSettingsService.VOLUME_MAX
+        mediaPlayer.setVolume(volume, volume)
+        mediaPlayer.start()
 
     }
 
@@ -192,6 +204,7 @@ class GameActivity : Activity() {
         remoteRemotePlayer?.setAsDead(getCountDeadOpponents().toInt())
         opponentsUpdater?.stopUpdates()
 
+        mediaPlayer.stop()
         intent.putExtra(SIGLA_TYPE, currentGametype)
         intent.putExtra(SIGLA_SCORE, score)
 
@@ -212,6 +225,7 @@ class GameActivity : Activity() {
 
     override fun onStop() {
         super.onStop()
+        mediaPlayer.release()
         remoteRemotePlayer?.setAsDead(getCountDeadOpponents().toInt())
         opponentsUpdater?.stopUpdates()
     }

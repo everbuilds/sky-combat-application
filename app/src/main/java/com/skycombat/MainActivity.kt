@@ -54,7 +54,6 @@ class MainActivity : AppCompatActivity() {
         val logout = findViewById<ImageButton>(R.id.logout)
         val settings = findViewById<ImageButton>(R.id.settings)
 
-
         // crea stanza e ci associa un giocatore
         multiplayer.setOnClickListener {
             toggleMultiplayer(false)
@@ -86,7 +85,7 @@ class MainActivity : AppCompatActivity() {
         login.setOnClickListener{ login() }
         logout.setOnClickListener{ logout() }
         settings.setOnClickListener{
-            // TODO startActivity(Intent(this, SettingsActivity::class.java))
+            startActivity(Intent(this, SettingsActivity::class.java))
         }
         leaderboard.setOnClickListener {
             startActivity(Intent(this, LeaderboardsActivity::class.java))
@@ -165,7 +164,7 @@ class MainActivity : AppCompatActivity() {
         val login = findViewById<ImageButton>(R.id.login)
         val logout = findViewById<ImageButton>(R.id.logout)
         this.runOnUiThread {
-            if(Amplify.Auth.currentUser != null) {
+            if(Amplify.Auth?.currentUser != null) {
                 login.visibility = View.GONE
                 logout.visibility = View.VISIBLE
                 toggleMultiplayer(true)

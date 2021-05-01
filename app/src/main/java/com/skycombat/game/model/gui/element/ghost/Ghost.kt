@@ -55,7 +55,7 @@ class Ghost(val aimedPos : MovementStrategy, val velocity: Float, val displayDim
 
     override fun draw(canvas: Canvas?, visitor: DrawVisitor) {
 
-        if(this.isAlive()) {
+        if(this.isAlive() && visible) {
             visitor.draw(canvas, this)
         }
     }
