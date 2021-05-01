@@ -25,7 +25,7 @@ class Ghost(val aimedPos : MovementStrategy, val velocity: Float, val displayDim
     var deadAt : Long? = null
     var alpha=127
     var ghostImg : Int = R.drawable.opponent
-
+    var visible : Boolean = true
     override fun getCenter(): PointF {
         return PointF(this.x, this.y)
     }
