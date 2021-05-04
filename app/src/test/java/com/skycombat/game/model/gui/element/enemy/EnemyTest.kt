@@ -30,7 +30,7 @@ class EnemyTest {
         val width = 100f
         val height = 100f
         val enemy = PlaneEnemy(GustBulletFactory(), Movement(1,2,3),  DisplayDimension(width, height))
-        val high = 180f
+        val high = 150f
         assertEquals(high,enemy.getHeight())
     }
 
@@ -40,7 +40,7 @@ class EnemyTest {
         val width = 100f
         val height = 100f
         val enemy = SpaceShipEnemy(GustBulletFactory(), Movement(1,2,3),  DisplayDimension(width, height))
-        val high = 270f
+        val high = 250f
         assertEquals(high,enemy.getHeight())
     }
 
@@ -49,7 +49,7 @@ class EnemyTest {
     fun `getMaxHealth plane enemy`() {
         val width = 100f
         val height = 100f
-        val coeff = 6f
+        val coeff = 1f
         val enemy = PlaneEnemy(GustBulletFactory(), Movement(1,2,3),  DisplayDimension(width, height), coeff)
         val health = 200f * coeff
         assertEquals(health , enemy.getMaxHealth())
