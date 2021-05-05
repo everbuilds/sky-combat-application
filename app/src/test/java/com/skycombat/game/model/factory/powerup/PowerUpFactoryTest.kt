@@ -12,7 +12,7 @@ import org.junit.Test
 import kotlin.random.Random
 
 class PowerUpFactoryTest{
-    // 7
+    // 8
     @Test
     fun `life PowerUp Factory`(){
         val width = 100f
@@ -24,7 +24,7 @@ class PowerUpFactoryTest{
         lifePower.applyPowerUPEffects(player)
         assertEquals(player.health,player.getMaxHealth())
     }
-    // 8
+    // 9
     @Test
     fun `guns PowerUp Factory`(){
         val width = 100f
@@ -41,7 +41,7 @@ class PowerUpFactoryTest{
             ClassicBulletFactory::class -> assertEquals(player.weapon.bulletFactory, ClassicBulletFactory::class)
         }
     }
-    // 9
+    // 10
     @Test
     fun `shield PowerUp Factory`(){
         val width = 100f
@@ -53,7 +53,7 @@ class PowerUpFactoryTest{
         shieldPower.applyPowerUPEffects(player)
         assertTrue(player.hasShield())
     }
-    // 10
+    // 11
     @Test
     fun `seedGeneral PowerUp Factory`(){
         val width = 100f

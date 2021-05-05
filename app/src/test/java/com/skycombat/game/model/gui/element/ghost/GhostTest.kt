@@ -11,7 +11,7 @@ import org.junit.Test
 import org.junit.Assert.*
 
 class GhostTest {
-    // 26
+    // 27
     @Test
     fun getCenter() {
         val width = 100f
@@ -25,7 +25,7 @@ class GhostTest {
         assertEquals(0.0f,center)
     }
 
-    // 27
+    // 28
     @Test
     fun getRadius() {
         val width = 100f
@@ -34,7 +34,7 @@ class GhostTest {
         assertEquals(70f,ghost.getRadius())
     }
 
-    // 28
+    // 29
     @Test
     fun `shouldRemove of ghost`() {
         val width = 100f
@@ -46,7 +46,7 @@ class GhostTest {
         assertTrue(ghost.shouldRemove())
     }
 
-    // 29
+    // 30
     @Test
     fun isAlive() {
         val width = 100f
@@ -55,7 +55,7 @@ class GhostTest {
         assertTrue(ghost.isAlive())
     }
 
-    // 30
+    // 31
     @Test
     fun update() {
         val width = 100f
@@ -84,7 +84,7 @@ class GhostTest {
 
     }
 
-    // 31
+    // 32
     @Test
     fun setX() {
         val width = 100f
@@ -96,7 +96,7 @@ class GhostTest {
     }
 
 
-    // 32
+    // 33
     @Test
     fun `aim position of ghost`() {
         val width = 100f
@@ -106,7 +106,7 @@ class GhostTest {
         assertEquals(5f,ghost.aimToPos())
     }
 
-    // 33
+    // 34
     @Test
     fun velocity() {
         val width = 100f
@@ -115,7 +115,7 @@ class GhostTest {
         assertEquals(2f,ghost.velocity())
     }
 
-    // 34
+    // 35
     @Test
     fun `collideRectangle = not collide ghost with bullet`() {
         val width = 100f; val height = 100f
@@ -127,7 +127,7 @@ class GhostTest {
 
     }
 
-    // 35
+    // 36
     @Test
     fun `CollideCircle = not collide ghost with bullet`() {
         val width = 100f; val height = 100f

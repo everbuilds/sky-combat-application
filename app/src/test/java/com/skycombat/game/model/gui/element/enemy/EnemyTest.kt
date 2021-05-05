@@ -14,7 +14,7 @@ import org.junit.Assert.*
 import org.mockito.Mockito
 
 class EnemyTest {
-    // 18
+    // 19
     @Test
     fun `getHeight of jet enemy`() {
         val width = 100f
@@ -24,7 +24,7 @@ class EnemyTest {
         assertNotEquals(high,enemy.getHeight())
     }
 
-    //19
+    //20
     @Test
     fun `getHeight of plane enemy`() {
         val width = 100f
@@ -34,7 +34,7 @@ class EnemyTest {
         assertEquals(high,enemy.getHeight())
     }
 
-    //20
+    //21
     @Test
     fun `getHeight of space ship enemy`() {
         val width = 100f
@@ -44,7 +44,7 @@ class EnemyTest {
         assertEquals(high,enemy.getHeight())
     }
 
-    // 21
+    // 22
     @Test
     fun `getMaxHealth plane enemy`() {
         val width = 100f
@@ -54,7 +54,7 @@ class EnemyTest {
         val health = 200f * coeff
         assertEquals(health , enemy.getMaxHealth())
     }
-    // 22
+    // 23
     @Test
     fun `getMaxHealth jet enemy`() {
         val width = 100f
@@ -63,7 +63,7 @@ class EnemyTest {
         val health = 300f
         assertEquals(health , enemy.getMaxHealth())
     }
-    //23
+    //24
     @Test
     fun `shouldRemove of enemy`() {
         //val width = 100f
@@ -78,9 +78,9 @@ class EnemyTest {
         assertTrue(enemy.shouldRemove())
     }
 
-    //24
+    //25
     @Test
-    fun `shouldRemove of enemy over the screen`() {
+    fun `shouldRemove of enemy outside the screen bounds`() {
 //        val width = 100f
 //        val height = 100f
 //        val enemy = PlaneEnemy(GustBulletFactory(), Movement(1,2,3),  DisplayDimension(width, height))
@@ -93,25 +93,7 @@ class EnemyTest {
         assertTrue(enemy.shouldRemove())
     }
 
-
-//    @Test
-//    fun `getPosition spaceShip`(){
-//        val width = 100f
-//        val height = 100f
-//        val enemy = SpaceShipEnemy(GustBulletFactory(), Movement(1,2,3),  DisplayDimension(width, height))
-//        assertNotSame(1f,enemy.getPosition())
-//    }
-//
-//    @Test
-//    fun `getPosition plane`(){
-//        val width = 100f
-//        val height = 100f
-//        val enemy = PlaneEnemy(ClassicBulletFactory(), Movement(1,2,3),  DisplayDimension(width, height))
-//        println(enemy.getPosition().left)
-//        assertNotEquals(0.0f,enemy.getPosition().left)
-//    }
-
-    //25
+    //26
     @Test
     fun `Testing Rectangle Colliding Bullet`(){
         val width = 100f

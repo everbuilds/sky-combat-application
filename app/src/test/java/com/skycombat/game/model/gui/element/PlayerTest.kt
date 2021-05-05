@@ -1,6 +1,5 @@
 package com.skycombat.game.model.gui.element
 
-import com.skycombat.FakePointF
 import com.skycombat.game.model.gui.DisplayDimension
 import com.skycombat.game.model.gui.element.bullet.Bullet
 import com.skycombat.game.model.gui.element.bullet.ClassicBullet
@@ -12,7 +11,7 @@ import org.junit.Test
 
 class PlayerTest {
 
-    // 36
+    // 41
     @Test
     fun `should remove if player is dead`(){
         val player = Player(10f, LinearAimedPositionMovement(), DisplayDimension(10f, 10f))
@@ -21,7 +20,7 @@ class PlayerTest {
         assertTrue(player.shouldRemove())
     }
 
-    //37
+    //42
     @Test
     fun `should not you be alive`(){
         val player = Player(10f, LinearAimedPositionMovement(), DisplayDimension(10f, 10f))
@@ -30,29 +29,10 @@ class PlayerTest {
         assertTrue(player.isAlive())
     }
 
-//    @Test
-//    fun `center is valid`(){
-//        val width = 100f
-//        val height = 100f
-//        val player = Player(0f, LinearAimedPositionMovement(), DisplayDimension(width, height))
-//
-//        val tx : Float  = width/2F
-//        val ty : Float = height/ 5 * 4
-
-
-//        val f = FakePointF(tx,ty)
-//        val x = f.x
-//        val y = f.y
-//        val center=FakePointF(player.getCenter().x,player.getCenter().y)
-//
-//        assertEquals(0.0f,center.dx)
-//    }
-
-    // 38
+    // 43
     @Test
     fun `collide with bullet`(){
         val width = 100f; val height = 100f
-        //var enemy = JetEnemy(LaserBulletFactory(), Movement(1,2,3), DisplayDimension(width, height))
         val player = Player(0f, LinearAimedPositionMovement(), DisplayDimension(width, height))
         val bullet = ClassicBullet(1f,1f, EnemyCollisionStrategy(),  Bullet.Direction.DOWN, DisplayDimension(width, height))
 
@@ -61,11 +41,10 @@ class PlayerTest {
         assertTrue(player.collide(bullet))
     }
 
-    // 39
+    // 44
     @Test
     fun `collide with rectangle`(){
         val width = 100f; val height = 100f
-        //var enemy = JetEnemy(LaserBulletFactory(), Movement(1,2,3), DisplayDimension(width, height))
         val player = Player(0f, LinearAimedPositionMovement(), DisplayDimension(width, height))
         val bullet = MultipleBullet(0f,0f, EnemyCollisionStrategy(),  Bullet.Direction.DOWN, DisplayDimension(width, height))
 
@@ -74,11 +53,10 @@ class PlayerTest {
         assertFalse(player.collide(bullet))
     }
 
-    // 40
+    // 45
     @Test
     fun `check health if bullet collide`(){
         val width = 100f; val height = 100f
-//        var enemy = JetEnemy(LaserBulletFactory(), Movement(1,2,3), DisplayDimension(width, height))
         val player = Player(0f, LinearAimedPositionMovement(), DisplayDimension(width, height))
         val bullet = ClassicBullet(1f,1f, EnemyCollisionStrategy(),  Bullet.Direction.DOWN, DisplayDimension(width, height))
 
@@ -88,7 +66,7 @@ class PlayerTest {
         assertTrue(player.getCurrentHealth()<player.getMaxHealth())
     }
 
-    // 41
+    // 46
     @Test
     fun `check MAX_HEALTH with shield if bullet collide`(){
         val width = 100f; val height = 100f
@@ -103,12 +81,11 @@ class PlayerTest {
         assertTrue(player.getCurrentHealth() == player.getMaxHealth())
     }
 
-    // 42
+    // 47
     @Test
     fun `check shield is due to date`(){
         val width = 100f; val height = 100f
         val player = Player(10f, LinearAimedPositionMovement(), DisplayDimension(width, height))
-        var bullet = ClassicBullet(1f,1f, EnemyCollisionStrategy(),  Bullet.Direction.DOWN, DisplayDimension(width, height))
 
         player.applyShield(1)
         player.update()
@@ -116,7 +93,7 @@ class PlayerTest {
         assertFalse(player.hasShield())
     }
 
-    //43
+    //48
     @Test
     fun `get X`(){
         val width = 100f; val height = 100f
@@ -126,7 +103,7 @@ class PlayerTest {
         assertEquals(player.getX(), hypotesX)
     }
 
-    //44
+    //49
     @Test
     fun `get Y`(){
         val width = 100f; val height = 100f

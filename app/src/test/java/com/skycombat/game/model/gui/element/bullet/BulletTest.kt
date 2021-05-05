@@ -5,50 +5,63 @@ import com.skycombat.game.model.gui.DisplayDimension
 import com.skycombat.game.model.gui.element.Player
 import com.skycombat.game.model.gui.element.bullet.collision.EnemyCollisionStrategy
 import com.skycombat.game.model.gui.element.bullet.collision.PlayerCollisionStrategy
+import com.skycombat.game.model.gui.element.enemy.Enemy
 import com.skycombat.game.model.gui.element.enemy.JetEnemy
 import com.skycombat.game.model.gui.element.enemy.PlaneEnemy
 import com.skycombat.game.model.gui.element.enemy.movement.Movement
 import com.skycombat.game.model.gui.element.ghost.movement.LinearAimedPositionMovement
+import com.skycombat.game.model.gui.element.powerup.PowerUp
 
 import org.junit.Test
 
 import org.junit.Assert.*
+import org.mockito.Mockito
 
 class BulletTest {
-    // 11
+    // 12
     @Test
     fun `shouldRemove gust bullet`() {
         val width = 100f
         val height = 100f
         val bullet = GustBullet(2f, 2f, PlayerCollisionStrategy(), Bullet.Direction.UP, DisplayDimension(width, height))
-        val enemy = PlaneEnemy(GustBulletFactory(), Movement(1, 2, 3), DisplayDimension(width, height))
+//        val enemy = PlaneEnemy(GustBulletFactory(), Movement(1, 2, 3), DisplayDimension(width, height))
+        val enemy: Enemy = Mockito.mock(
+            Enemy::class.java,
+            Mockito.CALLS_REAL_METHODS
+        )
         bullet.applyCollisionEffects(enemy)
         assertTrue(bullet.shouldRemove())
     }
-    // 12
+    // 13
     @Test
     fun `check life damage laser bullet`() {
         val width = 100f
         val height = 100f
         val bullet = LaserBullet(2f, 2f, PlayerCollisionStrategy(), Bullet.Direction.UP, DisplayDimension(width, height))
-        val enemy = PlaneEnemy(GustBulletFactory(), Movement(1, 2, 3), DisplayDimension(width, height))
+//        val enemy = PlaneEnemy(GustBulletFactory(), Movement(1, 2, 3), DisplayDimension(width, height))
+        val enemy: Enemy = Mockito.mock(
+            Enemy::class.java,
+            Mockito.CALLS_REAL_METHODS
+        )
+        enemy.health = 1f
         bullet.applyCollisionEffects(enemy)
-        assertTrue(enemy.health<enemy.getMaxHealth())
+        assertTrue(enemy.shouldRemove())
     }
 
-    //13
+    //14
     @Test
-    fun `check life damage multiple bullet`() {
+    fun `check damage multiple bullet`() {
         val width = 100f
         val height = 100f
         val bullet = MultipleBullet(6f, 4f, PlayerCollisionStrategy(), Bullet.Direction.UP, DisplayDimension(width, height))
         val enemy = JetEnemy(GustBulletFactory(), Movement(1, 2, 3), DisplayDimension(width, height))
+
         bullet.applyCollisionEffects(enemy)
         val damage = enemy.getMaxHealth()-enemy.health
         assertEquals(bullet.getDamage(),damage)
     }
 
-    // 14
+    // 15
     @Test
     fun `getSpeed classic bullet`() {
         val width = 10f
@@ -66,7 +79,7 @@ class BulletTest {
 
         assertTrue(bullet.shouldRemove() && player.shouldRemove())
     }
-    // 15
+    // 16
     @Test
     fun `getSpeed gust bullet`() {
         val width = 10f
@@ -84,7 +97,7 @@ class BulletTest {
 
         assertTrue(bullet.shouldRemove() && player.shouldRemove())
     }
-    // 16
+    // 17
     @Test
     fun `getSpeed laser bullet`() {
         val width = 10f
@@ -102,7 +115,7 @@ class BulletTest {
 
         assertEquals(80.0f,bullet.getSpeed())
     }
-    // 17
+    // 18
     @Test
     fun `getSpeed multiple bullet`() {
         val width = 10f
